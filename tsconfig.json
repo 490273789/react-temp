@@ -19,8 +19,7 @@
       "esnext"
     ], // 要包含在编译中的依赖库文件列表
     "allowJs": true, // 允许编译 JavaScript 文件
-    // 检查 JS 文件
-    "checkJs": true,
+    "checkJs": true, // 检查 JS 文件
     "skipLibCheck": true, // 跳过所有声明文件的类型检查
     "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块进行默认导入
     "resolveJsonModule": true, // 允许使用 .json 扩展名导入的模块
@@ -42,18 +41,16 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    // 不允许使用隐式的 any 类型
-    "noImplicitAny": false,
-    // 不允许 this 有隐式的 any 类型，即 this 必须有明确的指向
-    "noImplicitThis": false,
-    // 不允许把 null、undefined 赋值给其他类型变量
-    "strictNullChecks": false,
+    "noImplicitAny": false, // 不允许使用隐式的 any 类型
+    "noImplicitThis": false, // 不允许 this 有隐式的 any 类型，即 this 必须有明确的指向
+    "strictNullChecks": false, // 不允许把 null、undefined 赋值给其他类型变量
     "paths": {
       //别名
       "@/*": ["src/*"],
       "@images/*": ["src/assets/images/*"]
-    }
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["src"],
+  "include": ["src", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist", "webpack"] // *** 不进行类型检查的文件 ***
 }

@@ -1,15 +1,5 @@
-import React from "react";
-import { render } from 'react-dom';
-import "./index.scss";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 
-try {
-    const rootElement = document.getElementById('root');
-    console.log("运行");
-    const App = () => {
-        return <div className="hello">Hello</div>
-    };
-    render(<App />, rootElement)
-} catch (e) {
-    console.log('e', e);
-}
-
+ReactDOM.render(<App />, document.getElementById('root'))
