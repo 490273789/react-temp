@@ -1,0 +1,5 @@
+.hello {
+  @include wh(600px, 600px);
+  background: red;
+  color: #fff;
+}
