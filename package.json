@@ -10,7 +10,8 @@
     "build": "webpack --config webpack/webpack.prod.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js",
     "start": "cross-env NODE_ENV=dev webpack serve --config webpack/webpack.dev.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -21,16 +22,17 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@babel/runtime-corejs3": "^7.17.2",
-    "@commitlint/cli": "^16.2.1",
-    "@commitlint/config-conventional": "^16.2.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "babel-loader": "^8.2.3",
+    "commitizen": "^4.2.4",
     "cross-env": "^7.0.3",
     "css-loader": "^6.6.0",
+    "cz-conventional-changelog": "3.3.0",
+    "cz-customizable": "^6.3.0",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
     "eslint": "^8.10.0",
@@ -68,5 +70,10 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
