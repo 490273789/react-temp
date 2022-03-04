@@ -50,7 +50,7 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
+              modules: true, // 开启css Modules
               sourceMap: !IS_PRO,
             },
           },
