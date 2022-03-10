@@ -1,18 +1,14 @@
-// const cleanWebpackPlugin = require("clean-webpack-plugin") ;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const CopyPlugin = require("copy-webpack-plugin");
 const variable = require('./variable');
 const DotenvPlugin = require('dotenv-webpack');
 const path = require('path');
 
-// const {CleanWebpackPlugin}=cleanWebpackPlugin;
-const { PUBLIC_PATH, DIST_PATH, ENV_CONFIG_PATH, IS_DEV, SRC_PATH } = variable;
+const { PUBLIC_PATH, ENV_CONFIG_PATH, IS_DEV } = variable;
 
 function getHTMLPlugins() {
   const indexHtmlPlugin = new HtmlWebpackPlugin({
     template: path.join(PUBLIC_PATH, 'index.html'),
-    // filename: path.join(DIST_PATH, 'index.html'),
     filename: 'index.html',
     inject: true, //true 插入body底部，head:插入head标签，false:不生成js文件
     // hash: true, // 会在打包好的bundle.js后面加上hash串
@@ -29,11 +25,6 @@ function getHTMLPlugins() {
 }
 
 function getPlugins() {
-  // clean
-  // const cleanPlugin = new CleanWebpackPlugin({
-  //     cleanOnceBeforeBuildPatterns: ["**/*", '!dll', '!dll/*.*']
-  // });
-
   const miniCssPlugin = new MiniCssExtractPlugin({
     filename: IS_DEV ? 'css/[name].css' : 'css/[name].[contenthash:8].css',
     chunkFilename: IS_DEV ? 'css/[name].chunk.css' : 'css/[name].[contenthash:8].chunk.css',
@@ -46,19 +37,7 @@ function getPlugins() {
     path: ENV_CONFIG_PATH,
   });
 
-  // const copyPlugin=new CopyPlugin({
-  //     patterns: [
-  //       { from: path.resolve(SRC_PATH,"assets"), to: path.resolve(DIST_PATH,"assets") },
-  //     ],
-  // });
-
-  return [
-    // cleanPlugin,
-    // copyPlugin,
-    ...getHTMLPlugins(),
-    dotenvPlugin,
-    miniCssPlugin,
-  ];
+  return [...getHTMLPlugins(), dotenvPlugin, miniCssPlugin];
 }
 
 module.exports = {
